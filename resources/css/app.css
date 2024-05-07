@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import '_menu';
+@import '_carousel';
+@import '_welcome';
+@import '_footer';
+
+
+/*Estilos menu.blade.php*/
+@import '_cardmenu';
+*{
+    font-family: 'Poppins';
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #252954;
+}
+
