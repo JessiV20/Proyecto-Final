@@ -1,4 +1,6 @@
 @extends('partials.master')
+@include('partials.menu')
+
 @foreach($menu as $m)
 <div class="card" style="width: 18rem;">
     <img src="..." class="card-img-top" alt="...">
