@@ -3,41 +3,43 @@
 
 
     <h1>Genera tu reservación</h1>
-    <form id="reservation-form" action="{{ route('guardar_reservacion') }}" method="POST">
+    <form class="row g-3" id="reservation-form" action="{{ route('guardar_reservacion') }}" method="POST">
         @csrf
-        <div>
+        <div class="col-md-4">
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre">
+            <input  type="text" class="form-control"id="nombre" name="nombre" required>
         </div>
-        <div>
+        <div class="col-md-4">
             <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido">
+            <input type="text" class="form-control" id="apellido" name="apellido" required>
         </div>
-        <div>
+        <div class="col-md-4">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email">
+            <input type="email" class="form-control" id="email" name="email" required>
         </div>
-        <div>
+        <div class="col-md-3">
             <label for="telefono">Teléfono:</label>
-            <input type="text" id="telefono" name="telefono">
+            <input type="text" class="form-control" id="telefono" name="telefono" required>
         </div>
-        <div>
+        <div class="col-md-3">
             <label for="fecha">Fecha de Reservación:</label>
-            <input type="date" id="fecha" name="fecha">
+            <input type="date" class="form-control" id="fecha" name="fecha" required>
         </div>
-        <div>
+        <div class="col-md-3">
             <label for="hora">Hora de Reservación:</label>
-            <input type="time" id="hora" name="hora">
+            <input type="time" class="form-control" id="hora" name="hora" required>
         </div>
-        <div>
+        <div class="col-md-3">
             <label for="id_location">Ubicación:</label>
-            <select id="id_location" name="id_location">
+            <select id="id_location" name="id_location" class="form-select" required>
                 @foreach($locations as $location)
                     <option value="{{ $location->id }}">{{ $location->name }}</option>
                 @endforeach
             </select>
         </div>
-        <button type="submit">Enviar</button>
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit">Enviar</button>
+              </div>
     </form>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
