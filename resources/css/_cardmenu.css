@@ -6,9 +6,10 @@
 .heading-1 {
 	text-align: center;
 	font-weight: 500;
-	font-size: 3rem;
+	font-size: 4rem;
 	color:#fff; 
-	margin-bottom: 25px;
+	margin-bottom: 1px;
+	margin-top: 10px;
 }
 
 .borde{
@@ -57,6 +58,65 @@
 	color: #777;
 	font-weight: 500;
 }
+/*             CATEGORIAS  paquetes          */
+
+.top-categories1 {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	margin-bottom: 3rem;
+}
+
+.container-categories1 {
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	gap: 3rem;
+}
+
+.card-category1 {
+	height: 11.5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 2rem;
+	gap: 2rem;
+}
+.category-paquetes {
+	background-image: linear-gradient(#00000080, #00000080),
+	 url('/public/images/paquetes.jpeg');
+	background-size: cover;
+	background-position: 100%;
+	background-repeat: no-repeat;
+}
+
+.card-category1 p {
+	font-size: 3rem;
+	color: #fff;
+	text-transform: capitalize;
+	position: relative;
+}
+
+.card-category1 p::after {
+	content: '';
+	width: 2.5rem;
+	height: 2px;
+	background-color: #fff;
+	position: absolute;
+	bottom: -1rem;
+	left: 55%;
+	transform: translate(-50%, 50%);
+}
+
+.card-category1 span {
+	font-size: 1.6rem;
+	color: #fff;
+	cursor: pointer;
+}
+
+.card-category1 span:hover {
+	color: var(--primary-color);
+}
 
 /*             CATEGORIAS            */
 
@@ -69,12 +129,12 @@
 
 .container-categories {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(4, 1fr);
 	gap: 3rem;
 }
 
 .card-category {
-	height: 20rem;
+	height: 10rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -83,32 +143,134 @@
 	gap: 2rem;
 }
 
-.category-moca {
+.category-cocteleria {
 	background-image: linear-gradient(#00000080, #00000080),
-	 url('/public/images/camarones.jpg');
+	 url('/public/images/cocteleria.jpg');
 	background-size: cover;
-	background-position: bottom;
+	background-position: 100%;
 	background-repeat: no-repeat;
 }
 
-.category-capuchino {
+.category-postres {
 	background-image: linear-gradient(#00000080, #00000080),
-		url('Imagenes/postres.jpg');
+		url('/public/images/postres.jpg');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 }
 
-.category-expreso {
+.category-bebidas {
 	background-image: linear-gradient(#00000080, #00000080),
-		url('Imagenes/bebidas.webp');
+		url('/public/images/bebidas.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.category-niños {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('/public/images/niños.jpeg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.category-caldos {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('/public/images/sopas.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.category-entremeses {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('/public/images/entremeses.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.category-pulpo {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('/public/images/pulpo.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.category-cocteles {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('/public/images/cocteles.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.category-pescado {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('/public/images/pescado.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.category-especialidades {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('/public/images/camarones.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.category-filetes {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('/public/images/filetes.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.category-brochetas {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('/public/images/brochetas.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.category-carnes {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('/public/images/carnes.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.category-snacks {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('/public/images/snacks.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.category-parrillada {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('/public/images/parrillada.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.category-ensaladas {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('/public/images/ensalada.jpg');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 }
 
 .card-category p {
-	font-size: 2.5rem;
+	font-size: 2rem;
 	color: #fff;
 	text-transform: capitalize;
 	position: relative;
