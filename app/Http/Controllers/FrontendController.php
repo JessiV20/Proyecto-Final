@@ -28,6 +28,11 @@ class FrontendController extends Controller
         $menu = Menu::where('id_category',$id)->get();
         return view('detail')->with(['menu' => $menu]);
     }
+    public function detailpromo()
+    {
+        $packages = Package::all(); // Obtiene todos los registros de la tabla 'package'
+        return view('detailpromo', ['packages' => $packages]);
+    }
     public function guardarReservacion(Request $request) {
         $reservation = new Reservation();
         $reservation->name = $request->nombre;
