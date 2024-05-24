@@ -8,6 +8,7 @@ use App\Models\Location;
 use App\Models\Menu;
 use App\Models\Reservation;
 use App\Models\Package;
+use Illuminate\Support\Facades\Storage;
 
 
 
@@ -19,6 +20,10 @@ class FrontendController extends Controller
 
     public function menu() {
         return view('menu');
+    }
+    public function crus() {
+        $packages = Package::all(); // Obtener todos los paquetes
+        return view('crus', compact('packages')); // Pasar los paquetes a la vista
     }
     public function reservation() {
         $locations = Location::all(); // Obtener todas las ubicaciones disponibles
@@ -46,5 +51,46 @@ class FrontendController extends Controller
         $reservation->save();
         return view('welcome')->with('success', '¡Reservación realizada con éxito!');;
     }
+
+
+
+
+
+// Método para guardar un paquete
+public function guardarPaquete(Request $request) {
+    $package = new Package();
+    $package->name = $request->name;
+    $package->description = $request->description;
+    $package->image = $request->image;
+    $package->save();
+    
+    return redirect()->route('crus')->with('success', '¡Paquete agregado con éxito!');
 }
+
+// Método para mostrar el formulario de edición de paquete
+public function editarPaquete($id) {
+    $package = Package::findOrFail($id);
+    return view('editar_paquete', compact('package'));
+}
+
+// Método para actualizar un paquete
+public function actualizarPaquete(Request $request, $id) {
+    $package = Package::findOrFail($id);
+    $package->name = $request->name;
+    $package->description = $request->description;
+    $package->image = $request->image;
+    $package->save();
+    
+    return redirect()->route('crus')->with('success', '¡Paquete actualizado con éxito!');
+}
+
+// Método para eliminar un paquete
+public function eliminarPaquete($id) {
+    $package = Package::findOrFail($id);
+    $package->delete();
+    
+    return redirect()->route('crus')->with('success', '¡Paquete eliminado con éxito!');
+}
+ }
+
 				
