@@ -92,3 +92,12 @@
     transition: all 0.3s ease;
     opacity: 1;
 }
+
+
+h1{ color: white}
+label{
+    color: white;
+}
+p{
+    color: black;
+}

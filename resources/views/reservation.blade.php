@@ -1,5 +1,6 @@
 @extends('partials.master')
 @include('partials.menu')
+<link rel="stylesheet" href="resources/css/_RA.css">
 
 
     <h1>Genera tu reservación</h1>

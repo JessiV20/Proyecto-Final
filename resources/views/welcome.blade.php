@@ -13,7 +13,7 @@
         <div class="carousel-item active d-item">
             <img src="{{asset('images/carrusel1.jpg')}}" class="d-block w-100 d-img" alt="slider 1">
             <div class="carousel-caption top-0 mt-4">
-                <p class="mt-5 fs-3 text-uppercase">Descubre nuestros</p>
+                <h3 class="mt-5 fs-3 text-uppercase">Descubre nuestros</h3>
                 <h1 class="display-1 fw-bolder text-capitalize">deliciosos platillos</h1>
                 <button class="btn btn-primary px-4 py-2 fs-5 mt-5">Informacion</button>
             </div>

@@ -56,7 +56,7 @@ class FrontendController extends Controller
 
 
 
-// Método para guardar un paquete
+/*/ Método para guardar un paquete
 public function guardarPaquete(Request $request) {
     $package = new Package();
     $package->name = $request->name;
@@ -90,7 +90,82 @@ public function eliminarPaquete($id) {
     $package->delete();
     
     return redirect()->route('crus')->with('success', '¡Paquete eliminado con éxito!');
+}*/
+
+
+
+ // Método para guardar un paquete
+ public function guardarPaquete(Request $request) {
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'description' => 'required|string',
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    ]);
+
+    $package = new Package();
+    $package->name = $request->name;
+    $package->description = $request->description;
+
+    // Subir imagen y guardar la ruta en la base de datos
+    if ($request->hasFile('image')) {
+        $imagePath = $request->file('image')->store('images/packages', 'public');
+        $package->image = $imagePath;
+    }
+
+    $package->save();
+    
+    return redirect()->route('crus')->with('success', '¡Paquete agregado con éxito!');
 }
+
+// Método para mostrar el formulario de edición de paquete
+public function editarPaquete($id) {
+    $package = Package::findOrFail($id);
+    return view('editar_paquete', compact('package'));
+}
+
+// Método para actualizar un paquete
+public function actualizarPaquete(Request $request, $id) {
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'description' => 'required|string',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    ]);
+
+    $package = Package::findOrFail($id);
+    $package->name = $request->name;
+    $package->description = $request->description;
+
+    // Subir nueva imagen si existe y eliminar la anterior
+    if ($request->hasFile('image')) {
+        // Eliminar la imagen anterior
+        if ($package->image) {
+            Storage::disk('public')->delete($package->image);
+        }
+
+        // Subir la nueva imagen
+        $imagePath = $request->file('image')->store('images/packages', 'public');
+        $package->image = $imagePath;
+    }
+
+    $package->save();
+    
+    return redirect()->route('crus')->with('success', '¡Paquete actualizado con éxito!');
+}
+
+// Método para eliminar un paquete
+public function eliminarPaquete($id) {
+    $package = Package::findOrFail($id);
+
+    // Eliminar la imagen asociada
+    if ($package->image) {
+        Storage::disk('public')->delete($package->image);
+    }
+
+    $package->delete();
+    
+    return redirect()->route('crus')->with('success', '¡Paquete eliminado con éxito!');
+}
+
  }
 
 				
